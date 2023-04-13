@@ -1,0 +1,88 @@
+.Cabecalho {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+}
+
+
+.logo {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    margin-left: 220px;
+    margin-top: 20px; 
+}
+
+
+
+.opcoes {
+    margin: auto;
+    margin-right: 290px;
+    display: flex;
+    justify-content: flex-end;
+    width: 200px;
+    height: 100px;
+}
+
+
+.opcao {
+font-weight: bolder;
+margin: auto;
+display: flex;
+font-size: 1.5rem;
+justify-content: center;
+align-items: center;
+text-align: center;
+height: 100%;
+padding: 20px; 
+width: 168px;
+height: 84px;
+color: black;
+}
+
+.opcao1{
+width: 40px;
+height: 25px;
+
+}
+
+.opcao img{
+padding: 20px;
+width: 84px;
+height: 84px;
+}
+
+.opcoes a {
+border-radius: 25px;
+
+}
+
+/* unvisited link */
+a:link {
+color: red;
+}
+
+/* visited link */
+a:visited {
+color: rgb(0, 0, 255);
+}
+
+/* mouse over link */
+a:hover {
+transition: 1s;
+background-color: rgb(219,214,211);
+color: rgb(238, 50, 78);
+
+}
+
+.opcao:hover {
+transition: 1s;
+font-size: 2rem;
+color: rgb(0, 82, 159);
+}
+
+/* selected link */
+a:active {
+
+color: rgb(0, 82, 159);
+}

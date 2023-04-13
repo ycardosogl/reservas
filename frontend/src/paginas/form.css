@@ -1,0 +1,43 @@
+label{
+    display: inline-block;
+    
+    clear: left;
+    text-align: center;
+    width: 220px;
+    margin-top: 43px;
+    margin: 0px 0px 0px 0px;
+    margin-bottom: 6px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    
+    
+}
+input {
+  display: inline-block;
+ 
+  margin-top: 20px;
+  margin-bottom: 1px;
+  border-radius: 25px;
+  text-align: center ;
+  font-size: 1.5rem;
+  width: 20vw;
+  text-transform: uppercase;
+  
+
+}
+
+.campos{
+  padding: auto;
+  height: 560px;
+  margin: auto;
+  box-shadow: 0 0 15px 5px rgba(20, 28, 37, 0.1);
+  
+}
+
+.formSalas{
+    padding: 16px 32px;
+    border-radius: 25px;
+    height: 55vh;
+    margin: auto  ;
+    display: flex;
+}

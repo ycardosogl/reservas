@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=clientes%></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>cliente</h1>
+
+    <div class="col-xs-12">
+      <form action="/clientes" method="post" role="form">
+          <div class="row">
+              <div class="col-xs-4">
+                  <input type="text" name="cpf" placeholder="cpf" class="form-control"/>
+              </div>
+              <div class="col-xs-4">
+                  <input type="text" name="nome" placeholder="nome" class="form-control"/>
+              </div>
+              <div class="col-xs-4">
+                <input type="text" name="cep" placeholder="cep" class="form-control"/>
+            </div>
+            <div class="col-xs-4">
+              <input type="text" name="email" placeholder="email" class="form-control"/>
+          </div>
+          <div class="col-xs-4">
+            <input type="text" name="telefone" placeholder="telefone" class="form-control"/>
+        </div>
+        <div class="col-xs-4">
+          <input type="text" name="funcao" placeholder="funcao" class="form-control"/>
+      </div>
+              <div class="col-xs-4">
+                  <button type="submit" class="btn btn-default">Incluir</button>
+              </div>
+          </div>
+      </form>
+  </div>
+    
+    <table class="table table-bordered table-striped">
+      <thead><tr>
+          <th>CPF</th>
+          <th>Nome</th>
+          <th>CEP</th>
+          <th>EMAIL</th>
+          <th>FONE</th>
+          <th>FUNCAO</th>
+      </tr>
+      </thead>
+      
+      <tbody>
+          <% clientes.forEach(function(clientes, index) { %>
+            <tr>
+              <td><%- clientes.cpf %></td>
+              <td><%- clientes.nome %></td>
+              <td><%- clientes.cep %></td>
+              <td><%- clientes.email %></td>
+              <td><%- clientes.telefone %></td>
+              <td><%- clientes.funcao %></td>  
+              
+              <td><a href="/clientes/deletar/<%- clientes._id %>"onclick="return confirm('tem certeza que deseja excluir?')">X</a>
+              </td>
+              
+            </tr>
+          <% }) %>
+      </tbody>
+      
+      
+  </table>
+
+  </body>
+</html>
