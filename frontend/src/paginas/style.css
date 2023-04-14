@@ -344,7 +344,7 @@ button{
 }
 .ycgi{
   margin: 0px 0px;
-  width: 500px;
+  width: 560px;
  
   position:absolute;
   left: 730px;
@@ -354,4 +354,7 @@ button{
 .drop{
   left: 45px;
   bottom: 30px;
+}
+.label{
+  margin: 15px;
 }

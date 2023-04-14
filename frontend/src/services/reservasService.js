@@ -24,10 +24,7 @@ var reservasService = {
   updateReservas: async (reserva,id) => {
     var reservaAPI = axios.put('http://localhost:5001/reservas/'+id,reserva );
     return await reservaAPI;
-  },
-
-
-  
+  }, 
 };
 
 
