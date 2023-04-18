@@ -6,7 +6,7 @@ mongoose.connect('mongodb://127.0.0.1/reservas')
 var Schema = mongoose.Schema;
 
 const Clientes = new Schema({
-  cpf: {type:String, required: true},
+  cpf: {type:Number, required: true},
   nome:{type:String, required: true},
   cep: {type:String, required: true},
   email:{type:String, required: true},

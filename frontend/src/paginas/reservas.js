@@ -43,9 +43,11 @@ function Reservas() {
         if (event.nativeEvent.submitter.name === "salvar") {
           reserva.funcionario = 'WEB - Internet';
           reserva.cliente = 'WEB - Internet';
-          reserva.status = 'R'; // indicar sala reservada
+          reserva.status = 'R';
+          reserva.valortotal = '9999999';  // indicar sala reservada
           if (id === 'inserir') {
-              
+           
+
               await reservasService.createReservas(reserva);
               alert('incluido com sucesso!');
                
@@ -85,7 +87,7 @@ function Reservas() {
         <Form onSubmit={handleSubmit} className='caixareservass'>          
           
         <div className='ycgi'>
-          <Form.Label className='label'>CPF: <Form.Control type="number" name="numero" value={reserva.numero} onChange={handleChange}/></Form.Label>
+      
           <Form.Label>Nome:<Form.Control type="text" name="nome" value={reserva.cliente} onChange={handleChange}/></Form.Label>
           <Link to="/clientes/:id">
           <Button>
@@ -96,6 +98,7 @@ function Reservas() {
             />
           </Button>
           </Link>
+        
          
          
          
@@ -123,7 +126,7 @@ function Reservas() {
           <Button variant="primary" type="submit" name="cancelar">
             Cancelar
           </Button>
-          <Button variant="primary" type="submit" name="cancelar">
+          <Button variant="primary" disabled type="submit" name="cancelar">
             Cancelar Reserva
           </Button>
 
