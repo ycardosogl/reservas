@@ -45,6 +45,7 @@ function Reservas() {
           reserva.cliente = 'WEB - Internet';
           reserva.status = 'R';
           reserva.valortotal = '9999999';  // indicar sala reservada
+          if (event.nativeEvent.submitter.name === "salvar") {
           if (id === 'inserir') {
            
 
@@ -59,6 +60,14 @@ function Reservas() {
               
           }
         }
+      }else if (event.nativeEvent.submitter.name === "cancelar2"){
+        reserva.status='C';
+        await reservasService.updateReservas(reserva,id);
+        alert('cancelado com sucesso!');
+
+      }
+
+
       } catch (error) {
         console.error(error);
       }
@@ -126,7 +135,7 @@ function Reservas() {
           <Button variant="primary" type="submit" name="cancelar">
             Cancelar
           </Button>
-          <Button variant="primary" disabled type="submit" name="cancelar">
+          <Button variant="primary"  type="submit" name="cancelar2">
             Cancelar Reserva
           </Button>
 

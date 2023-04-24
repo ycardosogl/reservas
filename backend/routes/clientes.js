@@ -7,6 +7,7 @@ router.post('/', clientes.createClientes);
 router.get('/:id', clientes.getoneClientes);
 router.put('/:id', clientes.updateClientes);
 router.delete('/:id', clientes.deleteClientes);
+router.get('/cpf/:cpf', clientes.getClientescpf);
 
 
 module.exports = router;
