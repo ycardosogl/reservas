@@ -2,9 +2,56 @@ const reservas = require('../model/reservas')
 
 // apenas para testes
 exports.getReservas = async(req, res) => {
+
+  const dataInicio = req.body.dataInicio;
+  const dataFim = req.body.dataFim;
+  const horaInicio = req.body.horaInicio;
+  const horaFim = req.body.horaFim;
+  const sala_numero = req.body.sala;
+  const cliente_cpf = req.body.cliente;
+  const funcionario_cpf = req.body.funcionario;
+  const status_reserva = req.body.status;
+
+  const consulta = {}
+  
+  if ( (dataInicio) || (dataFim) ) {
+    // validar datas
+    const inicioData = new Date(dataInicio);
+    const fimData = new Date(dataFim);
+    if (isNaN(inicioData.getTime()) || isNaN(fimData.getTime())) {
+        res.status(400).json({ message: 'Datas inválidas' });}
+    if (dataFim < dataInicio) {
+        res.status(400).json({ message: 'A data final deve ser posterior à data inicial' });}
+  
+    consulta.data = { $gte: dataInicio, $lte: dataFim };
+    }
+
+  if ( (horaInicio) || (horaFim) ) {
+    // validar horas
+    if (isNaN(horaInicio) || isNaN(horaFim)) {
+      res.status(400).json({ message: 'Horas inválidas' });}
+    if (horaFim < horaInicio) {
+      res.status(400).json({ message: 'A hora final deve ser posterior à hora inicial' });}  
+    consulta.inicio = horaInicio;
+    consulta.fim = horaFim;
+  }
+
+  if (sala_numero) {
+    consulta.sala = sala_numero;
+  }
+  if (cliente_cpf) {
+    consulta.cliente = cliente_cpf;
+  }
+  if (funcionario_cpf) {
+    consulta.funcionario = funcionario_cpf;
+  }
+  if (status_reserva){
+    consulta.status = status_reserva;
+  }  
+
   try {
-      const reserva = await reservas.ReservasModel.find();
-      res.json(reserva)
+      const reservas = await reserva.reservaModel.find(consulta);
+      res.json(reservas)
   }catch(error) {
       res.status(500).json({ message: error.message });
 

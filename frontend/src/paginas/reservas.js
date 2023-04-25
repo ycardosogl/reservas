@@ -5,11 +5,12 @@ import Cabecalho from '../componentes/cabecalho/cabecalho';
 import Rodape from '../componentes/footer/rodape';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reservasService from '../services/reservasService';
+import clientesService from '../services/clientesService'; 
 import ComboSalas from '../paginas/combosalas';
 import { Link } from 'react-router-dom';
 function Reservas() {
   
-  const { id } = useParams();
+  const { id,cpf } = useParams();
   const [reserva, setFormData] = useState({});
   const [selectedValue, setSelectedValue] = useState('');
 
@@ -82,7 +83,10 @@ function Reservas() {
     const handleSelectChange = (value) => {
       setSelectedValue(value);      
       reserva.sala = value;
-    };    
+    };
+    
+    
+    
   
   return (    
 
@@ -97,7 +101,10 @@ function Reservas() {
           
         <div className='ycgi'>
       
+        <Form.Label>CPF:<Form.Control type="number" name="cpf" value={reserva.numero} onChange={handleChange}/></Form.Label>
           <Form.Label>Nome:<Form.Control type="text" name="nome" value={reserva.cliente} onChange={handleChange}/></Form.Label>
+          
+          
           <Link to="/clientes/:id">
           <Button>
             <Image
@@ -113,7 +120,7 @@ function Reservas() {
          
           <Form.Label>Valor select</Form.Label>
           <Form.Control name='sala' type="text" value={selectedValue} readOnly />
-
+          
           <ComboSalas onSelectChange={handleSelectChange} />
           
           <Form.Label>Numero:</Form.Label>

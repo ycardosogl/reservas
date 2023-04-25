@@ -25,6 +25,11 @@ var clientesService = {
     var clienteAPI = axios.put('http://localhost:5001/clientes/'+id,cliente );
     return await clienteAPI;
   },
+  getClientescpf: async (id) => {
+    const response = await axios.get('http://localhost:5000/clientes/cpf/'+ id);
+
+    return response;
+  },
 
 
   
