@@ -45,11 +45,10 @@ function Reservas() {
           reserva.funcionario = 'WEB - Internet';
           reserva.cliente = 'WEB - Internet';
           reserva.status = 'R';
-          reserva.valortotal = '9999999';  // indicar sala reservada
+          reserva.valortotal = 9999999;  // indicar sala reservada
           if (event.nativeEvent.submitter.name === "salvar") {
           if (id === 'inserir') {
-           
-
+            
               await reservasService.createReservas(reserva);
               alert('incluido com sucesso!');
                
@@ -72,7 +71,6 @@ function Reservas() {
       } catch (error) {
         console.error(error);
       }
-      history(-1);
     }
 
     const handleChange = (event) => {
@@ -101,7 +99,7 @@ function Reservas() {
           
         <div className='ycgi'>
       
-        <Form.Label>CPF:<Form.Control type="number" name="cpf" value={reserva.numero} onChange={handleChange}/></Form.Label>
+        
           <Form.Label>Nome:<Form.Control type="text" name="nome" value={reserva.cliente} onChange={handleChange}/></Form.Label>
           
           
@@ -124,7 +122,7 @@ function Reservas() {
           <ComboSalas onSelectChange={handleSelectChange} />
           
           <Form.Label>Numero:</Form.Label>
-          <Form.Control type="text" name="numero" value={reserva.numero} onChange={handleChange}/>
+          <Form.Control type="number" name="numero" value={reserva.numero} onChange={handleChange}/>
           <Form.Label>Data:</Form.Label>
           <Form.Control type="date" name="data" value={reserva.data} onChange={handleChange}/>
           <Form.Label>Hora inicio:</Form.Label>
